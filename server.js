@@ -1,13 +1,16 @@
 const app = require('express')();
 const PORT = process.env.PORT || 4000;
-const morgan = require('morgan');
 
-app.use(morgan('combined'));
+app.get('/status', (req, res) => {
+  res.json({
+    status: 'ok',
+    statusCode: 200,
+  })
+});
 
 app.get('*', (req, res) => {
   res.json({
     message: 'Express on Unubo Cloud',
-    secret: process.env.SECRET,
   })
 });
 
