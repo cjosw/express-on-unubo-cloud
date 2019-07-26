@@ -7,6 +7,7 @@ app.use(morgan('combined'));
 app.get('*', (req, res) => {
   res.json({
     message: 'Express on Unubo Cloud',
+    secret: process.env.SECRET,
   })
 });
 
